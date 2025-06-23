@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Change Style</title>
+    <style>
+      .highlight {
+        background-color: yellow;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <p id="text">Click the button to highlight me!</p>
+    <button onclick="changeStyle()">Highlight</button>
+    <script>
+      function changeStyle() {
+        document.getElementById("text").classList.toggle("highlight");
+      }
+    </script>
+  </body>
+</html>

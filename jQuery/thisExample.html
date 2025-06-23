@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+    <button class="myBtn">Button 1</button>
+    <button class="myBtn">Button 2</button>
+
+    <ul>
+      <li class="item">Apple</li>
+      <li class="item">Banana</li>
+      <li class="item">Orange</li>
+    </ul>
+    <div
+      class="box1"
+      style="width: 100px; height: 100px; background: orange"
+    ></div>
+    <br />
+    <div
+      class="box2"
+      style="width: 100px; height: 100px; background: rgba(255, 0, 0, 0.142)"
+    ></div>
+    <br />
+    <div
+      class="box3"
+      style="width: 100px; height: 100px; background: rgb(13, 255, 0)"
+    ></div>
+
+    <script>
+      $(".myBtn").click(function () {
+        // 'this' refers to the button that was clicked
+        console.log($(this).text());
+        $(this).text("Clicked!");
+      });
+
+      $(".item").each(function () {
+        console.log("Fruit: " + $(this).text());
+      });
+
+      $(".box2").mouseover(function () {
+        this.style.background = "purple"; 
+        // $(this).css("background", "purple");
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="demo">
+      Hello <span style="display: none">Ravikanth</span> <b>World</b>
+    </div>
+
+    <button onclick="showInnerText()">innerText</button>
+    <button onclick="showTextContent()">textContent</button>
+    <button onclick="showInnerHTML()">innerHTML</button>
+    <p id="result"></p>
+
+    <script>
+      function showInnerText() {
+        // document.getElementById("result").innerText =
+        //   document.getElementById("demo").innerText;
+        document.getElementById("result").textContent =
+          document.getElementById("demo").innerText;
+      }
+
+      function showTextContent() {
+        document.getElementById("result").textContent =
+          document.getElementById("demo").textContent;
+      }
+
+      function showInnerHTML() {
+        document.getElementById("result").textContent =
+          document.getElementById("demo").innerHTML;
+      }
+    </script>
+  </body>
+</html>

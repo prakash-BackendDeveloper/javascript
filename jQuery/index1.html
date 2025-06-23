@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Window Object & Events Demo</title>
+    <style>
+      body {
+        font-family: Arial;
+        padding: 20px;
+      }
+      button,
+      input,
+      select {
+        margin: 10px 0;
+        padding: 5px 10px;
+      }
+      #hoverBox {
+        width: 150px;
+        height: 50px;
+        background: rgb(178, 230, 173);
+        text-align: center;
+        line-height: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>🌐 Window Object Methods</h2>
+
+    <button onclick="openTab()">Open Google</button><br />
+    <button onclick="showSize()">Show Window Size</button><br />
+    <button onclick="reloadPage()">Reload Page</button><br />
+    <button onclick="goToGoogle()">Go to Google</button><br />
+    <button onclick="setDelay()">Show after 2 sec</button><br />
+    <button onclick="startRepeating()">Start Repeating</button><br />
+    <button onclick="scrollToTop()">Scroll to Top</button><br />
+    <button onclick="showBrowser()">Show Browser Info</button><br />
+
+    <h2>🖱️ Event Handlers (Inline)</h2>
+
+    <button onclick="alert('Clicked!')">Click Me</button><br />
+    <button ondblclick="alert('Double Clicked!')">Double Click Me</button><br />
+
+    <div
+      id="hoverBox"
+      onmouseover="this.style.background='yellow'"
+      onmouseout="this.style.background='lightblue'"
+    >
+      Hover Me
+    </div>
+    <br />
+
+    <input
+      type="text"
+      onkeydown="console.log('Key Pressed')"
+      placeholder="Type something..."
+    /><br />
+
+    <select onchange="alert('Option Changed!')">
+      <option>Apple</option>
+      <option>Banana</option></select
+    ><br />
+
+    <input
+      type="text"
+      onfocus="this.style.background='lightgreen'; console.log('Focused');"
+      onblur="this.style.background='white'; console.log('Focus Out')"
+      placeholder="Focus me"
+    /><br />
+
+    <input
+      type="text"
+      oninput="console.log(this.value)"
+      placeholder="Live typing..."
+    /><br />
+
+    <h2>🎧 Event Listeners (addEventListener)</h2>
+
+    <button id="eventBtn">Click Me (Listener)</button><br />
+    <select id="eventSelect">
+      <option>Dog</option>
+      <option>Cat</option></select
+    ><br />
+
+    <p id="dblText">Double Click This Text</p>
+    <p id="outputText"></p>
+
+    <script>
+      let newTab;
+      function openTab() {
+        newTab = window.open("https://www.google.com", "_blank"); //_self
+      }
+
+      function showSize() {
+        alert(
+          "Width: " + window.innerWidth + ", Height: " + window.innerHeight
+        );  
+      }
+
+      function reloadPage() {
+        window.location.reload();
+      }
+
+      function goToGoogle() {
+        window.location.href = "https://www.google.com";
+      }
+
+      function setDelay() {
+        setTimeout(() => {
+          alert("2 seconds passed!");
+        }, 2000);
+      }
+
+      function startRepeating() {
+        setInterval(() => {
+          console.log("Repeating every 3 sec...");
+        }, 3000);
+      }
+
+      function scrollToTop() {
+        window.scrollTo(0, 0);
+      }
+
+      // Event Listeners
+      document.getElementById("eventBtn").addEventListener("click", () => {
+        alert("Event Listener Clicked!");
+      });
+
+      document
+        .getElementById("eventSelect")
+        .addEventListener("change", function () {
+          alert("You selected: " + this.value);
+        });
+
+      document
+        .getElementById("dblText")
+        .addEventListener("dblclick", function () {
+          this.style.color = "red";
+        });
+
+      // Window Events
+      window.addEventListener("resize", () => {
+        console.log("Window resized to: " + window.innerWidth + "px");
+      });
+
+      window.addEventListener("scroll", () => {
+        console.log("You're scrolling!");
+      });
+
+      window.addEventListener("beforeunload", (e) => {
+        e.preventDefault();
+        e.returnValue = "";
+      });
+    </script>
+  </body>
+</html>

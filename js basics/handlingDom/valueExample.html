@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="username" placeholder="Enter name" />
+    <br />
+    <textarea
+      id="message"
+      rows="3"
+      placeholder="Type message here..."
+    ></textarea>
+    <br />
+    <button onclick="getValues()">Show Values</button>
+
+    <p id="output"></p>
+    <script>
+      function getValues() {
+        let name = document.getElementById("username").value;
+        let msg = document.getElementById("message").value;
+        document.getElementById("output").textContent =
+          "Name: " + name + "\nMessage: " + msg;
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script>
+      while (true) {
+        let val = prompt("Enter a value (like 0, false, null, 'hello', etc)");
+
+        if (val === null) {
+          let cancelCheck = confirm(
+            "You clicked Cancel. Do you really want to exit?"
+          );
+          if (cancelCheck) {
+            alert("Thanks for playing!");
+            break;
+          } else {
+            continue;
+          }
+        }
+
+        // Trim input
+        let trimmed = val.trim();
+
+        // Convert string input to actual JS types
+        switch (trimmed) {
+          case "false":
+            val = false;
+            break;
+          case "true":
+            val = true;
+            break;
+          case "null":
+            val = null;
+            break;
+          case "undefined":
+            val = undefined;
+            break;
+          case "NaN":
+            val = NaN;
+            break;
+          case "0":
+            val = 0;
+            break;
+          case "":
+            val = "";
+            break;
+          case "[]":
+            val = []; // Creates a new array
+            break;
+          case "{}":
+            val = {}; // Creates a new object
+            break;
+          default:
+            if (!isNaN(Number(trimmed)) && trimmed !== "") {
+              val = Number(trimmed); // Convert numeric string to number
+            } else {
+              val = trimmed; // Keep as string
+            }
+        }
+
+        // Falsy reference values
+        let falsyValues = [false, 0, "", NaN, null, undefined];
+
+        falsyValues.forEach((item) => console.log(String(item), Boolean(item)));
+
+        // Truthy reference values (except [] and {} which need custom check)
+        let truthyValues = [true, -1, "hello", 1, "0"];
+
+        // Main truthy/falsy checks
+        if (Array.isArray(val)) {
+          alert("The value is TRUTHY ✅ (Array)");
+        } else if (
+          typeof val === "object" &&
+          val !== null &&
+          !Array.isArray(val)
+        ) {
+          alert("The value is TRUTHY ✅ (Object)");
+        } else if (falsyValues.some((item) => Object.is(item, val))) {
+          alert("The value is FALSY ✅");
+        } else if (truthyValues.some((item) => Object.is(item, val))) {
+          alert("The value is TRUTHY ✅");
+        } else {
+          // Final fallback using JavaScript's default behavior
+          if (val) {
+            alert("The value is TRUTHY (by JS logic) ✅");
+          } else {
+            alert("The value is FALSY (by JS logic) ✅");
+          }
+        }
+
+        // Ask to play again
+        if (!confirm("Do you want to check another value?")) {
+          alert("Thanks for playing!");
+          break;
+        }
+      }
+    </script>
+  </body>
+</html>

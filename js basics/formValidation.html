@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Form Validation</title>
+  </head>
+  <body>
+    <!-- true → the form is submitted to https://www.google.com/ -->
+    <form action="https://www.google.com/" onsubmit="return validateForm()">
+      Name: <input type="text" id="name" /> <br /><br />
+      <span id="error" style="color: red"></span>
+      <br />
+      <button type="submit">Submit</button>
+    </form>
+    <script>
+      function validateForm() {
+        var name = document.getElementById("name").value;
+        if (name.trim() === "") {
+          document.getElementById("error").textContent = "Name is required!";
+          return false;
+        }
+        return true;
+      }
+    </script>
+  </body>
+</html>

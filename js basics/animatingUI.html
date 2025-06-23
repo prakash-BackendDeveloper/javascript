@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Animation</title>
+    <style>
+      #box {
+        margin: 50px;
+        width: 100px;
+        height: 100px;
+        background-color: blue;
+        position: relative;
+        transition: 2s;
+        left: 0;
+      }
+      /* #box:hover {
+        transform: rotate(10deg) scale(1.5);
+      } */
+    </style>
+  </head>
+  <body>
+    <div id="box"></div>
+    <button onclick="moveBox()" style="margin-top: 150px">Move Right</button>
+    <script>
+      function moveBox() {
+        const box = document.getElementById("box");
+        box.style.left = "200px";
+        box.style.backgroundColor = "pink";
+        box.style.transform = "rotate(15deg)";
+      }
+    </script>
+  </body>
+</html>

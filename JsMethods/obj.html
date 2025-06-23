@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head> </head>
+  <body>
+    <p>Json Object Methods</p>
+    <script>
+      let obj = { name: "Alice", age: 25 };
+
+      console.log(Object.keys(obj)); // ["name", "age"]
+      console.log(Object.values(obj)); // ["Alice", 25]
+      console.log(Object.entries(obj)); // [["name", "Alice"], ["age", 25]]
+
+      // Add property
+      obj.city = "NY";
+
+      // Delete property
+      delete obj.age;
+
+      console.log(obj); // { name: "Alice", city: "NY" }
+    </script>
+  </body>
+</html>
