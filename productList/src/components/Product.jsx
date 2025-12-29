@@ -2,7 +2,19 @@
 //   return <div>{props.name}</div>;
 // };
 
+import Counter from "./Counter";
+
 // Destructure  & named Export and named export can be multiple in one single file
-export const Product = ({ name }) => {
-  return <div>{name}</div>;
+// export const Product = ({ name }) => {
+//   return <div>{name}</div>;
+// };
+
+// for Counter
+export const Product = ({ name, quantity }) => {
+  return (
+    <div className="product">
+      {name}
+      <Counter initialCount={quantity} />
+    </div>
+  );
 };

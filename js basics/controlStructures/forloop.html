@@ -2,12 +2,73 @@
 <html>
   <head>
     <title>Print 1 to 10</title>
+    <ul id="myList">
+      <li>Apple</li>
+      <li>Banana</li>
+      <li>Mango</li>
+    </ul>
+
     <script>
-      function printNumbers() {
-        for (let i = 1; i <= 10; i++) {
-          console.log(i);
-        }
+      //  var a;
+      // let a;
+      // const a;
+      // console.log(a); // undefined
+      // var a = 10;
+      // let a = 10;
+
+      // let b; 👈 yes, it is hoisted
+      // BUT it is in the Temporal Dead Zone (TDZ)
+      // until this line: let b = 20;
+
+      // 1. Function Declaration
+      // greet(); //works
+
+      // function greet() {
+      //   console.log("Hello!");
+      // }
+
+      // 2. Function Expression
+      //greet1(); not works
+
+      var greet1 = function () {
+        console.log("Hello!");
+      };
+
+      function createCounter() {
+        let count = 0;
+
+        return function () {
+          count++;
+          console.log("Count:", count);
+        };
       }
+
+      const counter = createCounter();
+
+      counter(); // Count: 1
+      counter(); // Count: 2
+      counter(); // Count: 3
+
+      // When createCounter() runs, it creates:
+
+      // A local variable count = 0
+
+      // And a function that uses count
+
+      // When createCounter() returns, normally its memory would be cleared...
+
+      // ❗ But the returned function still needs count, so JavaScript remembers the count variable — that's closure.
+
+      //Event delegation
+
+      document.getElementById("myList").addEventListener("click", function (e) {
+        console.log(e.target);
+        console.log(e.target.tagName);
+        if (e.target.tagName === "LI") {
+          alert("You clicked: " + e.target.textContent);
+        }
+      });
+      document.getElementById("myList").innerHTML += "<li>Orange</li>";
     </script>
   </head>
   <body>

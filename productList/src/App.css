@@ -5,17 +5,24 @@
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+.product {
+  padding-top: 15px;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+
+.product button {
+  margin: 0 10px;
 }
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+
+.product-wrapper input {
+  width: 200px;
+  height: 30px;
+  margin-bottom: 15px;
+  padding: 0 15px;
+}
+
+.counter {
+  display: inline-block;
+  margin-left: 20px;
 }
 
 @keyframes logo-spin {

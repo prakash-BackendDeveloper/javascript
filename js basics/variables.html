@@ -13,13 +13,15 @@
       name = "Ruban";
       document.getElementById("varExample").textContent =
         name + " is from " + country;
-        if("hello"){
-          console.log("Hello");
-        }else{
 
-        }
+      let y = 20; // block scoped
+      {
+        var x = 20; //function scoped
+        let y = 30;
+        // console.log(y);
+      }
+      console.log(y);
     </script>
-
 
     <!-- false 0 "" (empty string) null, undefined, NaN -->
     <!-- true 1 "hello" [] (empty array) {} (empty object) "0" (string zero) -1 -->

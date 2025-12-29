@@ -106,7 +106,6 @@
       Object.keys(university.departments).forEach((deptKey) => {
         const dept = university.departments[deptKey];
         console.log(`Department: ${deptKey}, Head: ${dept.head}`);
-
         dept.courses.forEach((course) => {
           console.log(`  Course: ${course.name}, Credits: ${course.credits}`);
         });
