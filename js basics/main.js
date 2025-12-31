@@ -132,7 +132,7 @@
 // variable = "This is a test.";
 // console.log(variable);
 
-"use strict";
+// "use strict";
 // variable = "This is a test.";
 // console.log(variable);
 
@@ -179,33 +179,19 @@
 
 // throwCustomError();
 
-
-
-
-
-
-
-
-
-
 // finally block
-const useFinallyBlock = () => {
-  try {
-    console.log("Inside try block.");
-    //   throw new Error("An error occurred.");
-     
-  } catch (error) {
-    console.log("Caught an error: " + error.message);
-  } finally {
-    console.log("Finally block executed.");
-  }
-};
+// const useFinallyBlock = () => {
+//   try {
+//     console.log("Inside try block.");
+//     //   throw new Error("An error occurred.");
+//   } catch (error) {
+//     console.log("Caught an error: " + error.message);
+//   } finally {
+//     console.log("Finally block executed.");
+//   }
+// };
 
-useFinallyBlock();
-
-
-
-
+// useFinallyBlock();
 
 //Object.create example
 // const person = {
@@ -238,6 +224,7 @@ useFinallyBlock();
 // let numbers = [1, 2, 3];
 // let squaredNumbers = numbers.map((num) => num * num);
 // console.log(squaredNumbers);
+
 // filter method
 // let numbers = [10, 15, 20, 25, 30];
 // let filteredNumbers = numbers.filter((num) => num > 20);
@@ -247,7 +234,8 @@ useFinallyBlock();
 // let numbers = [1, 2, 3, 4];
 // let sum = numbers.reduce((accumulator, current) => accumulator + current, 0);
 // console.log(sum);
-// // find method
+
+// find method
 // let users = [
 //   { id: 1, name: "Alice" },
 //   { id: 2, name: "Bob" },
@@ -255,32 +243,47 @@ useFinallyBlock();
 // ];
 // let user = users.find((user) => user.id === 2);
 // console.log(user);
-// // some method
+
+// some method
+// let numbers = [1, 2, 3, 4];
 // let hasEvenNumber = numbers.some((num) => num % 2 === 0);
 // console.log(hasEvenNumber);
-// // every method
+
+// every method
+// let numbers = [1, 2, 3, 4];
 // let allPositive = numbers.every((num) => num > 0);
 // console.log(allPositive);
-// // sort method
+
+// sort method
 // let unsortedNumbers = [3, 1, 4, 2];
 // let sortedNumbers = unsortedNumbers.sort();
 // console.log(sortedNumbers);
-// // fill method
+
+// fill method
 // let filledArray = new Array(5).fill(0);
 // console.log(filledArray);
-// // findIndex method
+
+// findIndex method
 // let index = users.findIndex((user) => user.name === "Charlie");
 // console.log(index);
+
 // // includes method
 // let includesTwenty = numbers.includes(20);
 // console.log(includesTwenty);
+
+
+
+
+
+
+
 
 // Normal function and Hoisted function
 // function add(a, b) {
 //   return a + b;
 // }
 
-// console.log(add(2, 3));
+// console.log(add(3, 3));
 
 // function add(a, b) {
 //   return a + b;
@@ -289,13 +292,14 @@ useFinallyBlock();
 // can access 'this' keyword
 
 // const person = {
-//   name: "Prakash",
+//   name: "Harsh",
 //   sayHi: function () {
 //     console.log(this.name);
 //   },
 // };
 
 // person.sayHi();
+
 
 //Function Expression not Hoisted
 
@@ -305,9 +309,10 @@ useFinallyBlock();
 
 // console.log(add(2, 3));
 
-// const add = function (a, b) {
+//  const add = function (a, b) {
 //   return a + b;
 // };
+
 
 // Arrow Function and not Hoisted
 
@@ -317,7 +322,7 @@ useFinallyBlock();
 // console.log(add(2, 3));
 
 // const person = {
-//   name: "Prakash",
+//   name: "Harsh",
 //   sayHi: () => {
 //     console.log(this.name);
 //   },
@@ -342,6 +347,11 @@ useFinallyBlock();
 // myFunc();
 // myFunc();
 // myFunc();
+
+
+
+
+
 
 //Closure Example 2
 
@@ -899,7 +909,6 @@ useFinallyBlock();
 
 // const promise = new Promise((resolve, reject) => {
 //   let success = true;
-
 //   setTimeout(() => {
 //     if (success) {
 //       resolve("Success");
@@ -991,6 +1000,110 @@ useFinallyBlock();
 //   .then((data) => console.log(data))
 //   .catch((error) => console.log(error));
 
-// https://chatgpt.com/c/694f7b76-9704-8320-afd1-58f031e9fc73
+// Finally with success case
+// const myPromise = new Promise((resolve, reject) => {
+//   resolve("Done");
+// });
 
-// https://chatgpt.com/c/694f7c60-83ac-8320-951b-c42dd0a66a1a
+// myPromise
+//   .then((data) => console.log(data))
+//   .catch((error) => console.log(error))
+//   .finally(() => {
+//     console.log("Promise finished");
+//   });
+
+// Finally with error case
+// const myPromise = new Promise((resolve, reject) => {
+//   reject("Error happened");
+// });
+
+// myPromise
+//   .then((data) => console.log(data))
+//   .catch((error) => console.log(error))
+//   .finally(() => {
+//     console.log("Cleanup done");
+//   });
+
+// async / await - async makes a function always return a Promise
+
+// async
+// async function test() {
+//   return "Hello";
+// }
+
+// test().then((data) => console.log(data));
+
+// async & await (instead of .then())
+// function fetchData() {
+//   return new Promise((resolve) => {
+//     setTimeout(() => {
+//       resolve("Fetched data");
+//     }, 2000);
+//   });
+// }
+
+// async function getData() {
+//   const result = await fetchData();
+//   console.log(result);
+// }
+
+// getData();
+
+// multiple await
+// function step1() {
+//   return new Promise((resolve) => {
+//     setTimeout(() => resolve("Step 1 done"), 1000);
+//   });
+// }
+
+// function step2() {
+//   return new Promise((resolve) => {
+//     setTimeout(() => resolve("Step 2 done"), 1000);
+//   });
+// }
+
+// async function process() {
+//   const r1 = await step1();
+//   console.log(r1);
+
+//   const r2 = await step2();
+//   console.log(r2);
+// }
+
+// process();
+
+// Error Handling with try / catch
+
+// function fetchData(success) {
+//   return new Promise((resolve, reject) => {
+//     if (success) {
+//       resolve("Data loaded");
+//     } else {
+//       reject("Error loading data");
+//     }
+//   });
+// }
+
+// async function loadData() {
+//   try {
+//     const data = await fetchData(false);
+//     console.log(data);
+//   } catch (error) {
+//     console.log(error);
+//   }
+// }
+
+// loadData();
+
+// Real World Example with Fetch API and async/await
+// async function getUsers() {
+//   try {
+//     const response = await fetch("https://jsonplaceholder.typicode.com/users");
+//     const users = await response.json();
+//     console.log(users);
+//   } catch (error) {
+//     console.log("Error:", error);
+//   }
+// }
+
+// getUsers();
