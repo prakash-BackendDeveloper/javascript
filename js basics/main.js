@@ -271,13 +271,6 @@
 // let includesTwenty = numbers.includes(20);
 // console.log(includesTwenty);
 
-
-
-
-
-
-
-
 // Normal function and Hoisted function
 // function add(a, b) {
 //   return a + b;
@@ -300,7 +293,6 @@
 
 // person.sayHi();
 
-
 //Function Expression not Hoisted
 
 // const add = function (a, b) {
@@ -312,7 +304,6 @@
 //  const add = function (a, b) {
 //   return a + b;
 // };
-
 
 // Arrow Function and not Hoisted
 
@@ -344,14 +335,10 @@
 // }
 
 // const myFunc = outer();
+// console.log(myFunc);
 // myFunc();
 // myFunc();
 // myFunc();
-
-
-
-
-
 
 //Closure Example 2
 
@@ -363,8 +350,10 @@
 //   return sayHello;
 // }
 
-// const helloPrakash = greet("Prakash");
-// helloPrakash();
+// const helloHarsh = greet("Harsh");
+// helloHarsh();
+
+// Closure Example 3
 
 // function bankAccount() {
 //   let balance = 1000;
@@ -382,6 +371,7 @@
 // }
 
 // const account = bankAccount();
+// console.log(account);
 // account.deposit(500);
 // account.withdraw(300);
 
@@ -618,10 +608,11 @@
 // Template Strings(Template Literals)
 
 // Old way
-// let name = "Prakash";
+// let name = "Harsh";
 // let age = 30;
 
 // console.log("My name is " + name + " and I am " + age);
+
 // // New way
 // console.log(`My name is ${name} and I am ${age}`);
 
@@ -994,34 +985,32 @@
 //   .catch(console.log)
 //   .finally(() => console.log("Done"));
 
-// real world example - Fetch API
-// fetch("https://jsonplaceholder.typicode.com/users")
-//   .then((response) => response.json())
-//   .then((data) => console.log(data))
-//   .catch((error) => console.log(error));
+// Real World Example with Fetch API and Promises
 
-// Finally with success case
-// const myPromise = new Promise((resolve, reject) => {
-//   resolve("Done");
-// });
-
-// myPromise
-//   .then((data) => console.log(data))
-//   .catch((error) => console.log(error))
-//   .finally(() => {
-//     console.log("Promise finished");
+// function getUsers() {
+//   return new Promise((resolve, reject) => {
+//     fetch("https://jsonplace-holder.typicode.com/users")
+//       .then((Response) => {
+//         if (!Response.ok) {
+//           reject("Api error");
+//         }
+//         return Response.json();
+//       })
+//       .then((data) => {
+//         resolve(data);
+//       })
+//       .catch((error) => {
+//         reject("Network error: " + error.message); //No internet, Wrong domain, DNS issue, CORS blocked
+//       });
 //   });
+// }
 
-// Finally with error case
-// const myPromise = new Promise((resolve, reject) => {
-//   reject("Error happened");
-// });
-
-// myPromise
-//   .then((data) => console.log(data))
-//   .catch((error) => console.log(error))
-//   .finally(() => {
-//     console.log("Cleanup done");
+// getUsers()
+//   .then((data) => {
+//     console.log("Users fetched successfully:", data);
+//   })
+//   .catch((error) => {
+//     console.error("Error fetching users:", error);
 //   });
 
 // async / await - async makes a function always return a Promise
